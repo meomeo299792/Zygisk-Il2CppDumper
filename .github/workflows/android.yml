@@ -29,8 +29,15 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleRelease
 
+    -- name: Build with Gradle
+      run: ./gradlew assemble
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Zygisk-Module-Cua-May
-        path: "**/build/outputs/**/*.zip"
+        name: Zygisk-Module-LienQuan-Test
+        path: |
+          **/*.zip
+          **/release/*.zip
+          **/outputs/**/*.zip
+        if-no-files-found: error
